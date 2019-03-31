@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp * /tmp/data $APP_DATA/data
+cp /tmp/data/* $APP_DATA/data
