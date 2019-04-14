@@ -4,3 +4,6 @@
 
 mkdir -p /tmp
 mv $APP_DATA/data /tmp
+
+echo "post-assemble"
+crontab -l
