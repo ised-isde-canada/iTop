@@ -9,3 +9,6 @@ else
     echo "Data dir empty.  Copy default data."
     cp -r /tmp/data $APP_DATA
 fi
+
+echo "pre-start"
+crontab -l
