@@ -1,4 +1,4 @@
-FROM php-s2i-71-graphviz:latest
+FROM centos/php-71-centos7
 
 
 RUN yum update -y && \
