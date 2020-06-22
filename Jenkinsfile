@@ -19,7 +19,7 @@ pipeline {
       steps {
         script {
           sh"""
-            ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
+            composer.phar install --no-interaction --no-ansi --optimize-autoloader
           """
         }
       }
