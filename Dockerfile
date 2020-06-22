@@ -1,4 +1,4 @@
-FROM registry.apps.dev.openshift.ised-isde.canada.ca/ised-ci/sclorg-s2i-php:7.3
+FROM registry.apps.dev.openshift.ised-isde.canada.ca/ised-ci/php-s2i-71-graphviz:latest
 
 USER root
 
@@ -29,11 +29,11 @@ RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader && 
     rm ./composer.phar
 USER root
 
+#ISED customizations go here
 
 
 
-
-
+#end of ISED customizations
 
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
