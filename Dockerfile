@@ -14,11 +14,16 @@ RUN yum update -y && \
         php-gd && \
     yum clean all
 
-    
-RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
+
+#do not run composer as root, according to the documentation
 
 COPY / /opt/app-root/src
+RUN chgrp -R 0 /opt/app-root/src && \
+    chmod -R g=u+wx /opt/app-root/src
 
+USER 1001
+RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
+USER root
 
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
