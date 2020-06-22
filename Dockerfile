@@ -15,14 +15,14 @@ RUN yum update -y && \
     yum clean all
 
     
+RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
+
 COPY / /opt/app-root/src
 
 
-RUN cd /opt/app-root/src && \
-    chgrp -R 0 bin && \
-    chmod -R g=u+wx bin
+RUN chgrp -R 0 /opt/app-root/src && \
+    chmod -R g=u+wx /opt/app-root/src
 
-RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
 
 USER 1001
 
