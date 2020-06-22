@@ -8,7 +8,6 @@ RUN curl -s -o $COMPOSER_FILE https://getcomposer.org/installer && \
     php <$COMPOSER_FILE
 
 RUN yum update -y && \
-    yum clean all && \
     yum install -y \
         php-soap \
         php-mysqli \
@@ -17,7 +16,7 @@ RUN yum update -y && \
 
 COPY / /opt/app-root/src
 
-RUN composer.phar install --no-interaction --no-ansi --optimize-autoloader
+RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
 
 USER 1001
 
