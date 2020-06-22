@@ -14,10 +14,13 @@ RUN yum update -y && \
         php-gd && \
     yum clean all
 
-RUN chgrp -R 0 bin && \
-    chmod -R g=u+wx bin
     
 COPY / /opt/app-root/src
+
+
+RUN cd /opt/app-root/src && \
+    chgrp -R 0 bin && \
+    chmod -R g=u+wx bin
 
 RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
 
