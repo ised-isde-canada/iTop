@@ -20,4 +20,4 @@ RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
 
 USER 1001
 
-ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+ENTRYPOINT ["bin/run"]
