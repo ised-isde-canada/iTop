@@ -11,7 +11,7 @@ pipeline {
 
   environment {
     // GLobal Vars
-    IMAGE_NAME = "ciodrcoe-epic-drupal-wxt"
+    IMAGE_NAME = "itop"
   }
 
   stages {
@@ -21,6 +21,8 @@ pipeline {
           sh"""
             composer.phar install --no-interaction --no-ansi --optimize-autoloader
           """
+
+          builder.buildApp("${IMAGE_NAME}")
         }
       }
     }
