@@ -14,3 +14,4 @@ RUN yum update -y && \
 USER 1001
 
 
+ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
