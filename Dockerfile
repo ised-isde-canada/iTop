@@ -1,4 +1,4 @@
-FROM registry.apps.dev.openshift.ised-isde.canada.ca/ised-ci/php-s2i-71-graphviz
+FROM registry.apps.dev.openshift.ised-isde.canada.ca/ised-ci/sclorg-s2i-php:7.3
 
 USER root
 
