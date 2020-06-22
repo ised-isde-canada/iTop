@@ -18,10 +18,6 @@ pipeline {
     stage('build') {
       steps {
         script {
-          sh"""
-            composer.phar install --no-interaction --no-ansi --optimize-autoloader
-          """
-
           builder.buildApp("${IMAGE_NAME}")
         }
       }

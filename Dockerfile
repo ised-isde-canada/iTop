@@ -1,4 +1,4 @@
-FROM centos/php-71-centos7
+FROM registry.apps.dev.openshift.ised-isde.canada.ca/ised-ci/php-s2i-71-graphviz:latest
 
 USER root
 
@@ -11,7 +11,11 @@ RUN yum update -y && \
         php-gd && \
     yum clean all
 
-USER 1001
 
+COPY / /opt/app-root/src
+
+RUN composer.phar install --no-interaction --no-ansi --optimize-autoloader
+
+USER 1001
 
 ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
