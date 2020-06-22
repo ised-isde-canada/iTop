@@ -18,16 +18,25 @@ RUN yum update -y && \
 #do not run composer as root, according to the documentation
 
 COPY / /opt/app-root/src
+
+WORKDIR /opt/app-root/src
+
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
 
 USER 1001
-RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
+RUN ./composer.phar install --no-interaction --no-ansi --optimize-autoloader && \
+    rm ./composer.phar
 USER root
+
+
+
+
+
+
 
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
-
 
 USER 1001
 
