@@ -31,7 +31,12 @@ USER root
 
 #ISED customizations go here
 
-
+#Download toolkit.zip file
+RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToolkit-2.7.zip \
+	#Unzip toolkit.zip file
+	&& unzip toolkit.zip \
+	#Remove toolkit.zip file
+	&& rm toolkit.zip
 
 #end of ISED customizations
 
