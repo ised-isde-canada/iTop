@@ -31,7 +31,18 @@ USER root
 
 #ISED customizations go here
 
-
+#Download toolkit.zip file
+RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToolkit-2.7.zip \
+	#Unzip toolkit.zip file
+	&& unzip toolkit.zip \
+	#Remove toolkit.zip file
+	&& rm toolkit.zip
+	
+#Transfer required extension files from the github repository into the iTop image
+COPY /extensions/datamodel.applicationsolution-add-attribute.xml /opt/app-root/src/extensions && \
+	 /extensions/en.dict.applicationsolution-add-attribute.php /opt/app-root/src/extensions && \
+	 /extensions/model.applicationsolution-add-attribute.php /opt/app-root/src/extensions && \
+	 /extensions/module.applicationsolution-add-attribute.php /opt/app-root/src/extensions
 
 #end of ISED customizations
 
