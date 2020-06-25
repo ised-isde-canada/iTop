@@ -39,7 +39,10 @@ RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToo
 #Transfer required extension files from the github repository into the iTop image
 RUN mkdir /extensions
 
-ADD https://github.com/ised-isde-canada/iTop/blob/develop/extensions/datamodel.applicationsolution-add-attribute.xml extensions/
+ADD https://github.com/ised-isde-canada/iTop/blob/develop/extensions/datamodel.applicationsolution-add-attribute.xml extensions/ && \
+	https://github.com/ised-isde-canada/iTop/blob/develop/extensions/en.dict.applicationsolution-add-attribute.php extensions/ && \
+	https://github.com/ised-isde-canada/iTop/blob/develop/extensions/model.applicationsolution-add-attribute.php extensions/ && \
+	https://github.com/ised-isde-canada/iTop/blob/develop/extensions/module.applicationsolution-add-attribute.php extensions/
 
 #end of ISED customizations
 
