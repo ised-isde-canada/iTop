@@ -40,6 +40,9 @@ RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToo
 RUN mkdir /extensions
 
 COPY extensions/datamodel.applicationsolution-add-attribute.xml extensions/
+COPY extensions/en.dict.applicationsolution-add-attribute.php extensions/
+COPY extensions/model.applicationsolution-add-attribute.php extensions/
+COPY extensions/module.applicationsolution-add-attribute.php extensions/
 
 #end of ISED customizations
 
