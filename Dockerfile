@@ -37,9 +37,10 @@ RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToo
 	&& rm toolkit.zip
 	
 #Transfer required extension files from the github repository into the iTop image
-RUN mkdir extensions && \
-    cd extensions && \
-    mkdir applicationsolution-add-attribute
+RUN mkdir extensions 
+#&& \
+    #cd extensions && \
+    #mkdir applicationsolution-add-attribute
     
 COPY extensions/datamodel.applicationsolution-add-attribute.xml extensions/applicationsolution-add-attribute
 COPY extensions/en.dict.applicationsolution-add-attribute.php extensions/applicationsolution-add-attribute
