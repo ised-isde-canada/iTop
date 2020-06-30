@@ -3,10 +3,10 @@
   <classes>
         <class id="ApplicationSolution" _delta="merge">
 			<fields>
-                <field id="status" xsi:type="AttributeEnum" _delta="merge">
+                		<field id="status" xsi:type="AttributeEnum" _delta="merge">
 					<values _delta="merge">
-                        <value id="decommissioned" _delta="define">Decommissioned</value>
-                        <value id="absent in APM list" _delta="define">Absent in APM List</value>
+                        			<value id="decommissioned" _delta="define">Decommissioned</value>
+                        			<value id="absent in APM list" _delta="define">Absent in APM List</value>
 						<value id="unknown" _delta="define">Unknown</value>
 					</values>
 					<sql>status</sql>
@@ -20,10 +20,10 @@
   <dictionaries>
 		<dictionary id="EN US">
 			<entries>
-                <entry id="Class:ApplicationSolution/Attribute:status/Value:decommissioned" _delta="define"><![CDATA[Decommissioned]]></entry>
+                		<entry id="Class:ApplicationSolution/Attribute:status/Value:decommissioned" _delta="define"><![CDATA[Decommissioned]]></entry>
 				<entry id="Class:ApplicationSolution/Attribute:status/Value:absent in APM list" _delta="define"><![CDATA[Absent in APM List]]></entry>
 				<entry id="Class:ApplicationSolution/Attribute:status/Value:unknown" _delta="define"><![CDATA[Unknown]]></entry>
-            </entries>
+            		</entries>
 		</dictionary>
   </dictionaries>
 </itop_design>
