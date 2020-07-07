@@ -1299,7 +1299,7 @@ class AttributeDashboard extends AttributeDefinition
 	{
 		return '';
 	}
-	
+
 	/**
 	 * @inheritdoc
 	 */
@@ -7357,7 +7357,17 @@ class AttributeImage extends AttributeBlob
 		return '<div class="'.$sCssClasses.'" style="width: '.$iMaxWidthPx.'; height: '.$iMaxHeightPx.';"><span class="helper-middle"></span>'.$sRet.'</div>';
 	}
 
-	private function GetHtmlForImageUrl($sUrl, $iMaxWidthPx, $iMaxHeightPx) {
+	/**
+	 * @param string $sUrl
+	 * @param int $iMaxWidthPx
+	 * @param int $iMaxHeightPx
+	 *
+	 * @return string
+	 *
+	 * @since 2.6.0 new private method
+	 * @since 2.7.0 change visibility to protected
+	 */
+	protected function GetHtmlForImageUrl($sUrl, $iMaxWidthPx, $iMaxHeightPx) {
 		return  '<img src="'.$sUrl.'" style="max-width: '.$iMaxWidthPx.'; max-height: '.$iMaxHeightPx.'">';
 	}
 
@@ -7366,8 +7376,11 @@ class AttributeImage extends AttributeBlob
 	 * @param \DBObject $oHostObject
 	 *
 	 * @return null|string
+	 *
+	 * @since 2.6.0 new private method
+	 * @since 2.7.0 change visibility to protected
 	 */
-	private function GetAttributeImageFileUrl($value, $oHostObject) {
+	protected function GetAttributeImageFileUrl($value, $oHostObject) {
 		if (!is_object($value)) {
 			return null;
 		}

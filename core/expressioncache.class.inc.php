@@ -19,7 +19,6 @@
 
 class ExpressionCache
 {
-	static private $aCache = array();
 
 	static public function GetCachedExpression($sClass, $sAttCode)
 	{
@@ -28,20 +27,13 @@ class ExpressionCache
 
 		$oExpr = null;
 		$sKey = static::GetKey($sClass, $sAttCode);
-		if (array_key_exists($sKey, static::$aCache))
+		$sCacheClass = self::GetCacheClassName();
+		if (class_exists($sCacheClass))
 		{
-			$oExpr =  static::$aCache[$sKey];
-		}
-		else
-		{
-			if (class_exists('ExpressionCacheData'))
+			if (array_key_exists($sKey, $sCacheClass::$aCache))
 			{
-				if (array_key_exists($sKey, ExpressionCacheData::$aCache))
-				{
-					$sVal = ExpressionCacheData::$aCache[$sKey];
-					$oExpr = unserialize($sVal);
-					static::$aCache[$sKey] = $oExpr;
-				}
+				$sVal = $sCacheClass::$aCache[$sKey];
+				$oExpr = unserialize($sVal);
 			}
 		}
 		return $oExpr;
@@ -50,37 +42,46 @@ class ExpressionCache
 
 	static public function Warmup()
 	{
-		$sFilePath = static::GetCacheFileName();
-
-		if (!is_file($sFilePath))
+		// Store current language
+		$sUserLang = Dict::GetUserLanguage();
+		$aLanguages = Dict::GetLanguages();
+		foreach($aLanguages as $sLang => $aLang)
 		{
-			$content = <<<EOF
-<?php
-// Copyright (c) 2010-2017 Combodo SARL
-// Generated Expression Cache file
+			Dict::SetUserLanguage($sLang);
+			$sFilePath = static::GetCacheFileName();
+			$sCacheClass = self::GetCacheClassName();
 
-class ExpressionCacheData
+			if (!is_file($sFilePath))
+			{
+				$content = <<<EOF
+<?php
+// Copyright (c) 2010-2019 Combodo SARL
+// Generated Expression Cache file for $sLang
+
+class $sCacheClass
 {
 	static \$aCache =  array(
 EOF;
 
-			foreach(MetaModel::GetClasses() as $sClass)
-			{
-				$content .= static::GetSerializedExpression($sClass, 'friendlyname');
-				if (MetaModel::IsObsoletable($sClass))
+				foreach (MetaModel::GetClasses() as $sClass)
 				{
-					$content .= static::GetSerializedExpression($sClass, 'obsolescence_flag');
+					$content .= static::GetSerializedExpression($sClass, 'friendlyname');
+					if (MetaModel::IsObsoletable($sClass))
+					{
+						$content .= static::GetSerializedExpression($sClass, 'obsolescence_flag');
+					}
 				}
-			}
 
-			$content .= <<<EOF
+				$content .= <<<EOF
 	);
 }
 EOF;
 
-			SetupUtils::builddir(dirname($sFilePath));
-			file_put_contents($sFilePath, $content);
+				SetupUtils::builddir(dirname($sFilePath));
+				file_put_contents($sFilePath, $content);
+			}
 		}
+		Dict::SetUserLanguage($sUserLang);
 	}
 
 	static private function GetSerializedExpression($sClass, $sAttCode)
@@ -102,9 +103,29 @@ EOF;
 
 	public static function GetCacheFileName()
 	{
-		return utils::GetCachePath().'expressioncache.php';
+		$sLangName = self::GetLangName();
+		return utils::GetCachePath().'expressioncache-' . $sLangName . '.php';
 	}
 
+	/**
+	 * @return string
+	 */
+	private static function GetCacheClassName()
+	{
+		$sLangName = self::GetLangName();
+		$sCacheClass = "ExpressionCacheData$sLangName";
+		return $sCacheClass;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	private static function GetLangName()
+	{
+		$sLang = Dict::GetUserLanguage();
+		$sLangName = str_replace(" ", "", $sLang);
+		return $sLangName;
+	}
 }
 
 

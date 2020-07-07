@@ -680,7 +680,7 @@ class ArchiveTar
 	 */
 	public function _error($p_message)
 	{
-		IssueLog::Error($p_message);
+		$this->error_object = $this->raiseError($p_message);
 	}
 
 	/**
@@ -688,7 +688,7 @@ class ArchiveTar
 	 */
 	public function _warning($p_message)
 	{
-		IssueLog::Warning($p_message);
+		$this->error_object = $this->raiseError($p_message);
 	}
 
 	/**
@@ -1209,6 +1209,10 @@ class ArchiveTar
 				return false;
 			}
 
+			// --- START COMBODO modification
+			// (see commit 2706ebf6)
+			// read/write files with a bigger buffer to increase drastically performances
+			// to still get a valid archive, last bytes are still read/write using a 512 byte buffer
 			$iLen = 1024*1024;
 			while (($v_buffer = fread($v_file, $iLen)) != '') {
 				$iBufferLen = strlen("$v_buffer");
@@ -1224,6 +1228,7 @@ class ArchiveTar
 				$v_binary_data = pack($sPack, "$v_buffer");
 				$this->_writeBlock($v_binary_data);
 			}
+			// --- END COMBODO modification
 
 			fclose($v_file);
 		} else {
@@ -1725,6 +1730,10 @@ class ArchiveTar
 	 */
 	private function _maliciousFilename($file)
 	{
+		if (strpos($file, 'phar://') === 0) {
+			return true;
+		}
+
 		if (strpos($file, '/../') !== false) {
 			return true;
 		}

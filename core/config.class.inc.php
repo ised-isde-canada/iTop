@@ -19,7 +19,7 @@
 
 define('ITOP_APPLICATION', 'iTop');
 define('ITOP_APPLICATION_SHORT', 'iTop');
-define('ITOP_VERSION', '2.6.0');
+define('ITOP_VERSION', '2.7.0-dev');
 define('ITOP_REVISION', 'svn');
 define('ITOP_BUILD_DATE', '$WCNOW$');
 
@@ -92,7 +92,8 @@ class Config
 	 * New way to store the settings !
 	 *
 	 * @var array
-	 * @since 2.5 db* variables
+	 * @since 2.5.0 db* variables
+	 * @since 2.7.0 export_pdf_font param
 	 */
 	protected $m_aSettings = array(
 		'app_env_label' => array(
@@ -330,6 +331,16 @@ class Config
 			'value' => false,
 			'source_of_value' => '',
 			'show_in_conf_sample' => true,
+		),
+		'export_pdf_font' => array( // @since 2.7 PR #49
+			'type' => 'string',
+			'description' => 'Font used when generating a PDF file',
+			'default' => 'DejaVuSans', // DejaVuSans is a UTF-8 Unicode font, embedded in the TCPPDF lib we're using
+										// Standard PDF fonts like helvetica or times newroman are NOT Unicode
+										// A new DroidSansFallback can be used to improve CJK support (se PR #49)
+			'value' => '',
+			'source_of_value' => '',
+			'show_in_conf_sample' => false,
 		),
 		'access_mode' => array(
 			'type' => 'integer',
@@ -1549,83 +1560,6 @@ class Config
 	public function SetAddons($aAddons)
 	{
 		$this->m_aAddons = $aAddons;
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @deprecated 2.5 will be removed in 2.6
-	 * @see Config::Get() as a replacement
-	 */
-	public function GetDBHost()
-	{
-		return $this->Get('db_host');
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @deprecated 2.5 will be removed in 2.6
-	 * @see Config::Get() as a replacement
-	 */
-	public function GetDBName()
-	{
-		return $this->Get('db_name');
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @deprecated 2.5 will be removed in 2.6
-	 * @see Config::Get() as a replacement
-	 */
-	public function GetDBSubname()
-	{
-		return $this->Get('db_subname');
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @deprecated 2.5 will be removed in 2.6 N°1001 utf8mb4 switch
-	 * @see Config::DEFAULT_CHARACTER_SET
-	 */
-	public function GetDBCharacterSet()
-	{
-		return DEFAULT_CHARACTER_SET;
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @deprecated 2.5 will be removed in 2.6 N°1001 utf8mb4 switch
-	 * @see Config::DEFAULT_COLLATION
-	 */
-	public function GetDBCollation()
-	{
-		return DEFAULT_COLLATION;
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @deprecated 2.5 will be removed in 2.6
-	 * @see Config::Get() as a replacement
-	 */
-	public function GetDBUser()
-	{
-		return $this->Get('db_user');
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @deprecated 2.5 will be removed in 2.6
-	 * @see Config::Get() as a replacement
-	 */
-	public function GetDBPwd()
-	{
-		return $this->Get('db_pwd');
 	}
 
 	public function GetLogGlobal()

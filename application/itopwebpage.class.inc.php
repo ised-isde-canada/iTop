@@ -46,8 +46,6 @@ class iTopWebPage extends NiceWebPage implements iTabbedPage
 	protected $sBreadCrumbEntryIcon;
 	protected $oCtx;
 
-	protected $bHasCollapsibleSection = false;
-
 	public function __construct($sTitle, $bPrintable = false)
 	{
 		parent::__construct($sTitle, $bPrintable);
@@ -221,7 +219,6 @@ EOF;
 		);
 		$sTimeFormat = AttributeDateTime::GetFormat()->ToTimeFormat();
 		$oTimeFormat = new DateTimeFormat($sTimeFormat);
-		$sJSLangShort = json_encode(strtolower(substr(Dict::GetUserLanguage(), 0, 2)));
 
 		// Date picker options
 		$aPickerOptions = array(
@@ -239,21 +236,23 @@ EOF;
 		$sJSDatePickerOptions = json_encode($aPickerOptions);
 
 		// Time picker additional options
+		$sUserLang = Dict::GetUserLanguage();
+		$sTimePickerLang = json_encode(Dict::S('INTERNAL:JQuery-DatePicker:LangCode', $sUserLang));
 		$aPickerOptions['showOn'] = '';
 		$aPickerOptions['buttonImage'] = null;
 		$aPickerOptions['timeFormat'] = $oTimeFormat->ToDatePicker();
 		$aPickerOptions['controlType'] = 'select';
 		$aPickerOptions['closeText'] = Dict::S('UI:Button:Ok');
 		$sJSDateTimePickerOptions = json_encode($aPickerOptions);
-		if ($sJSLangShort != '"en"')
+		if ($sTimePickerLang != '"en"')
 		{
 			// More options that cannot be passed via json_encode since they must be evaluated client-side
 			$aMoreJSOptions = ",
-				'timeText': $.timepicker.regional[$sJSLangShort].timeText,
-				'hourText': $.timepicker.regional[$sJSLangShort].hourText,
-				'minuteText': $.timepicker.regional[$sJSLangShort].minuteText,
-				'secondText': $.timepicker.regional[$sJSLangShort].secondText,
-				'currentText': $.timepicker.regional[$sJSLangShort].currentText
+				'timeText': $.timepicker.regional[$sTimePickerLang].timeText,
+				'hourText': $.timepicker.regional[$sTimePickerLang].hourText,
+				'minuteText': $.timepicker.regional[$sTimePickerLang].minuteText,
+				'secondText': $.timepicker.regional[$sTimePickerLang].secondText,
+				'currentText': $.timepicker.regional[$sTimePickerLang].currentText
 			}";
 			$sJSDateTimePickerOptions = substr($sJSDateTimePickerOptions, 0, -1).$aMoreJSOptions;
 		}
@@ -261,7 +260,7 @@ EOF;
 			<<< EOF
 	function GetUserLanguage()
 	{
-		return $sJSLangShort;
+		return $sTimePickerLang;
 	}
 	function PrepareWidgets()
 	{
@@ -327,23 +326,22 @@ EOF
 	});
 EOF
 		);
-
 		// Make image attributes zoomable
 		$this->add_ready_script(
-			<<<EOF
+<<<EOF
 		$('.view-image img').each(function(){
 			$(this).attr('href', $(this).attr('src'))
 		})
 		.magnificPopup({type: 'image', closeOnContentClick: true });
 EOF
 		);
-		
+
 		$this->add_init_script(
 			<<< EOF
 	try
 	{
 		var myLayout; // a var is required because this page utilizes: myLayout.allowOverflow() method
-	
+
 		// Layout
 		paneSize = GetUserPreference('menu_size', 300);
 		if ($('body').length > 0)
@@ -761,15 +759,9 @@ EOF
 		switch ($iCount)
 		{
 			case 0:
-				// No such dimension/silo => nothing to select
-				$sHtml = '<div id="SiloSelection"><!-- nothing to select --></div>';
-				break;
-
 			case 1:
-				// Only one possible choice... no selection, but display the value
-				$oOrg = $oSet->Fetch();
-				$sHtml = '<div id="SiloSelection">'.$oOrg->GetName().'</div>';
-				$sHtml .= '';
+				// No such dimension/silo or only one possible choice => nothing to select
+				$sHtml = '<div id="SiloSelection"><!-- nothing to select --></div>';
 				break;
 
 			default:
@@ -847,7 +839,7 @@ EOF
 			$aParams = array(
 				'image_url' => $sImageUrl,
 				'placeholder_image_url' => $sPlaceholderImageUrl,
-				'cache_uuid' => 'itop-newsroom-'.md5(APPROOT),
+				'cache_uuid' => 'itop-newsroom-'.UserRights::GetUserId().'-'.md5(APPROOT),
 				'providers' => $aProviderParams,
 				'display_limit' => (int)appUserPreferences::GetPref('newsroom_display_size', 7),
 				'labels' => array(
@@ -1437,38 +1429,6 @@ EOF;
 		ExecutionKPI::ReportStats();
 	}
 
-	/**
-	 * Adds init scripts for the collapsible sections
-	 */
-	private function outputCollapsibleSectionInit()
-	{
-		if (!$this->bHasCollapsibleSection)
-		{
-			return;
-		}
-
-		$this->add_script(<<<'EOD'
-function initCollapsibleSection(iSectionId, bOpenedByDefault, sSectionStateStorageKey)
-{
-var bStoredSectionState = JSON.parse(localStorage.getItem(sSectionStateStorageKey));
-var bIsSectionOpenedInitially = (bStoredSectionState == null) ? bOpenedByDefault : bStoredSectionState;
-
-if (bIsSectionOpenedInitially) {
-	$("#LnkCollapse_"+iSectionId).toggleClass("open");
-	$("#Collapse_"+iSectionId).toggle();
-}
-
-$("#LnkCollapse_"+iSectionId).click(function(e) {
-	localStorage.setItem(sSectionStateStorageKey, !($("#Collapse_"+iSectionId).is(":visible")));
-	$("#LnkCollapse_"+iSectionId).toggleClass("open");
-	$("#Collapse_"+iSectionId).slideToggle("normal");
-	e.preventDefault(); // we don't want to do anything more (see #1030 : a non wanted tab switching was triggered)
-});
-}
-EOD
-		);
-	}
-
 	public function AddTabContainer($sTabContainer, $sPrefix = '')
 	{
 		$this->add($this->m_oTabs->AddTabContainer($sTabContainer, $sPrefix));
@@ -1537,43 +1497,6 @@ EOD
 	public function SelectTab($sTabContainer, $sTabLabel)
 	{
 		$this->add_ready_script($this->m_oTabs->SelectTab($sTabContainer, $sTabLabel));
-	}
-
-	public function StartCollapsibleSection(
-		$sSectionLabel, $bOpenedByDefault = false, $sSectionStateStorageBusinessKey = ''
-	) {
-		$this->add($this->GetStartCollapsibleSection($sSectionLabel, $bOpenedByDefault,
-			$sSectionStateStorageBusinessKey));
-	}
-
-	private function GetStartCollapsibleSection(
-		$sSectionLabel, $bOpenedByDefault = false, $sSectionStateStorageBusinessKey = ''
-	) {
-		$this->bHasCollapsibleSection = true;
-		$sHtml = '';
-		static $iSectionId = 0;
-		$sHtml .= '<a id="LnkCollapse_'.$iSectionId.'" class="CollapsibleLabel" href="#">'.$sSectionLabel.'</a></br>'."\n";
-		$sHtml .= '<div id="Collapse_'.$iSectionId.'" style="display:none">'."\n";
-
-		$oConfig = MetaModel::GetConfig();
-		$sSectionStateStorageKey = $oConfig->GetItopInstanceid().'/'.$sSectionStateStorageBusinessKey.'/collapsible-'.$iSectionId;
-		$sSectionStateStorageKey = json_encode($sSectionStateStorageKey);
-		$sOpenedByDefault = ($bOpenedByDefault) ? 'true' : 'false';
-		$this->add_ready_script("initCollapsibleSection($iSectionId, $sOpenedByDefault, '$sSectionStateStorageKey');");
-
-		$iSectionId++;
-
-		return $sHtml;
-	}
-
-	public function EndCollapsibleSection()
-	{
-		$this->add($this->GetEndCollapsibleSection());
-	}
-
-	public function GetEndCollapsibleSection()
-	{
-		return "</div>";
 	}
 
 	public function add($sHtml)

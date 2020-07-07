@@ -671,14 +671,15 @@ EOF
 			if (count($aTriggers) > 0)
 			{
 				$iId = $this->GetKey();
-				$sTriggersList = implode(',', $aTriggers);
+				$aParams = array('triggers' => $aTriggers, 'id' => $iId);
 				$aNotifSearches = array();
 				$iNotifsCount = 0;
 				$aNotificationClasses = MetaModel::EnumChildClasses('EventNotification', ENUM_CHILD_CLASSES_EXCLUDETOP);
 				foreach($aNotificationClasses as $sNotifClass)
 				{
-					$aNotifSearches[$sNotifClass] = DBObjectSearch::FromOQL("SELECT $sNotifClass AS Ev JOIN Trigger AS T ON Ev.trigger_id = T.id WHERE T.id IN ($sTriggersList) AND Ev.object_id = $iId");
-					$oNotifSet = new DBObjectSet($aNotifSearches[$sNotifClass]);
+					$aNotifSearches[$sNotifClass] = DBObjectSearch::FromOQL("SELECT $sNotifClass AS Ev JOIN Trigger AS T ON Ev.trigger_id = T.id WHERE T.id IN (:triggers) AND Ev.object_id = :id");
+					$aNotifSearches[$sNotifClass]->SetInternalParams($aParams);
+					$oNotifSet = new DBObjectSet($aNotifSearches[$sNotifClass], array());
 					$iNotifsCount += $oNotifSet->Count();
 				}
 				// Display notifications regarding the object: on block per subclass to have the intersting columns
@@ -3737,17 +3738,19 @@ EOF
 		{
 			// Invoke extensions after the update (could be before)
 			/** @var \iApplicationObjectExtension $oExtensionInstance */
-			foreach(MetaModel::EnumPlugins('iApplicationObjectExtension') as $oExtensionInstance)
+			foreach (MetaModel::EnumPlugins('iApplicationObjectExtension') as $oExtensionInstance)
 			{
 				$oExtensionInstance->OnDBUpdate($this, self::GetCurrentChange());
 			}
-		} catch (Exception $e)
+		}
+		catch (Exception $e)
 		{
-			unset($aUpdateReentrance[$sKey]);
 			throw $e;
 		}
-
-		unset($aUpdateReentrance[$sKey]);
+		finally
+		{
+			unset($aUpdateReentrance[$sKey]);
+		}
 
 		return $res;
 	}
