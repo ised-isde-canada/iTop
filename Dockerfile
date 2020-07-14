@@ -39,7 +39,7 @@ RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToo
 #Transfer required extension files from the github repository into the iTop image
 #RUN mkdir extensions && \
 #     cd extensions && \
-RUN mkdir extensions/ModifyStatusField
+#RUN mkdir extensions/ModifyStatusField
     
 COPY extensions/datamodel.applicationsolution-add-attribute.xml extensions/ModifyStatusField
 COPY extensions/en.dict.applicationsolution-add-attribute.php extensions/ModifyStatusField
