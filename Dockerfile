@@ -35,16 +35,27 @@ RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToo
 	&& unzip toolkit.zip \
 	#Remove toolkit.zip file
 	&& rm toolkit.zip
-	
-#Transfer required extension files from the github repository into the iTop image
-#RUN mkdir extensions && \
-#     cd extensions && \
-#     mkdir extensions/ModifyStatusField
-    
-COPY extensions/datamodel.applicationsolution-add-attribute.xml extensions
-COPY extensions/en.dict.applicationsolution-add-attribute.php extensions
-COPY extensions/model.applicationsolution-add-attribute.php extensions
-COPY extensions/module.applicationsolution-add-attribute.php extensions
+
+COPY extensions/ModifyStatusField/datamodel.applicationsolution-add-attribute.xml extensions/ModifyStatusField
+COPY extensions/ModifyStatusField/en.dict.applicationsolution-add-attribute.php extensions/ModifyStatusField
+COPY extensions/ModifyStatusField/model.applicationsolution-add-attribute.php extensions/ModifyStatusField
+COPY extensions/ModifyStatusField/module.applicationsolution-add-attribute.php extensions/ModifyStatusField
+
+COPY extensions/AddPortfolioField/datamodel.applicationsolution-add-portfolio-field.xml extensions/AddPortfolioField
+COPY extensions/AddPortfolioField/en.dict.applicationsolution-add-portfolio-field.php extensions/AddPortfolioField
+COPY extensions/AddPortfolioField/model.applicationsolution-add-portfolio-field.php extensions/AddPortfolioField
+COPY extensions/AddPortfolioField/module.applicationsolution-add-portfolio-field.php extensions/AddPortfolioField
+
+COPY extensions/AddPresentAPMField/datamodel.applicationsolution-add-present-apm-field.xml extensions/AddPresentAPMField
+COPY extensions/AddPresentAPMField/en.dict.applicationsolution-add-present-apm-field.php extensions/AddPresentAPMField
+COPY extensions/AddPresentAPMField/model.applicationsolution-add-present-apm-field.php extensions/AddPresentAPMField
+COPY extensions/AddPresentAPMField/module.applicationsolution-add-present-apm-field.php extensions/AddPresentAPMField
+
+
+COPY extensions/AddJIRAIDField/datamodel.applicationsolution-add-jira-depID.xml extensions/AddJIRAIDField
+COPY extensions/AddJIRAIDField/en.dict.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
+COPY extensions/AddJIRAIDField/model.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
+COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 
 #end of ISED customizations
 
