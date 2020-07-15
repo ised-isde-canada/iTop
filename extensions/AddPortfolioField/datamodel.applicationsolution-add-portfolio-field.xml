@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
-  <classes>
-    <class id="ApplicationSolution">
-      <fields>
-        <field id="APM_Portfolio_Assessment" xsi:type="AttributeEnum" _delta="define">
-			    <values _delta="define">
-            <value id="Yes" _delta="define">Yes</value>
-            <value id="No - Out of Scope" _delta="define">No - Out of Scope</value>
-            <value id="No - Only Departmental Usage" _delta="define">No - Only Departmental Usage</value>
-            <value id="No - Incomplete Record" _delta="define">No - Incomplete Record</value>
-            <value id="N/A" _delta="define">N/A</value>
-			    </values>
-          <sql>APM_Portfolio_Assessment</sql>
-          <default_value>N/A</default_value>
-          <is_null_allowed>true</is_null_allowed>
-          <display_style>list</display_style>
-        </field>
-      </fields>
-     </class>
-  </classes>
-  <dictionaries>
+	<classes>
+		<class id="ApplicationSolution">
+			<fields>
+				<field id="APM_Portfolio_Assessment" xsi:type="AttributeEnum" _delta="define">
+					<values _delta="define">
+						<value id="Included" _delta="define">Included</value>
+						<value id="Not Included - Out of Scope" _delta="define">Not Included - Out of Scope</value>
+						<value id="Not Included - Only Departmental Usage" _delta="define">Not Included - Only Departmental Usage</value>
+						<value id="Not Included - Incomplete Record" _delta="define">Not Included - Incomplete Record</value>
+						<value id="Unknown" _delta="define">Unknown</value>
+					</values>
+					<sql>APM_Portfolio_Assessment</sql>
+					<default_value>Included</default_value>
+					<is_null_allowed></is_null_allowed>
+					<display_style>list</display_style>
+				</field>
+			</fields>
+		</class>
+	</classes>
+	<dictionaries>
 		<dictionary id="EN US">
 			<entries>
-          <entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Yes" _delta="define"><![CDATA[Yes]]></entry>
-          <entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:No - Out of Scope" _delta="define"><![CDATA[No - Out of Scope]]></entry>
-          <entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:No - Only Departmental Usage" _delta="define"><![CDATA[No - Only Departmental Usage]]></entry>
-          <entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:No - Incomplete Record" _delta="define"><![CDATA[No - Incomplete Record]]></entry>
-          <entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:N/A" _delta="define"><![CDATA[N/A]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Included" _delta="define"><![CDATA[Included]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Out of Scope" _delta="define"><![CDATA[Not Included - Out of Scope]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Only Departmental Usage" _delta="define"><![CDATA[Not Included - Only Departmental Usage]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Incomplete Record" _delta="define"><![CDATA[Not Included - Incomplete Record]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Unknown" _delta="define"><![CDATA[Unknown]]></entry>
 			</entries>
 		</dictionary>
-  </dictionaries>
+	</dictionaries>
 </itop_design>
