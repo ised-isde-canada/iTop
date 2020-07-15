@@ -7,6 +7,6 @@
  */
 
 Dict::Add('EN US', 'English', 'English', array(
-        'Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment' => 'Included in APM Portfolio Assessment',
+        'Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment' => 'APM Portfolio Status',
 ));
 ?>
