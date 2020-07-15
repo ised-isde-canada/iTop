@@ -9,11 +9,10 @@
 						<value id="Not Included - Out of Scope" _delta="define">Not Included - Out of Scope</value>
 						<value id="Not Included - Only Departmental Usage" _delta="define">Not Included - Only Departmental Usage</value>
 						<value id="Not Included - Incomplete Record" _delta="define">Not Included - Incomplete Record</value>
-						<value id="Unknown" _delta="define">Unknown</value>
 					</values>
 					<sql>APM_Portfolio_Assessment</sql>
 					<default_value>Included</default_value>
-					<is_null_allowed></is_null_allowed>
+					<is_null_allowed>true</is_null_allowed>
 					<display_style>list</display_style>
 				</field>
 			</fields>
@@ -26,7 +25,6 @@
 				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Out of Scope" _delta="define"><![CDATA[Not Included - Out of Scope]]></entry>
 				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Only Departmental Usage" _delta="define"><![CDATA[Not Included - Only Departmental Usage]]></entry>
 				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Incomplete Record" _delta="define"><![CDATA[Not Included - Incomplete Record]]></entry>
-				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Unknown" _delta="define"><![CDATA[Unknown]]></entry>
 			</entries>
 		</dictionary>
 	</dictionaries>
