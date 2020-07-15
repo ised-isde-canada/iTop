@@ -40,11 +40,16 @@ RUN curl -L -o toolkit.zip http://www.combodo.com/documentation/iTopDataModelToo
 #RUN mkdir extensions && \
 #     cd extensions && \
 #RUN mkdir extensions/ModifyStatusField
-    
+
 COPY extensions/ModifyStatusField/datamodel.applicationsolution-add-attribute.xml extensions/ModifyStatusField
 COPY extensions/ModifyStatusField/en.dict.applicationsolution-add-attribute.php extensions/ModifyStatusField
 COPY extensions/ModifyStatusField/model.applicationsolution-add-attribute.php extensions/ModifyStatusField
 COPY extensions/ModifyStatusField/module.applicationsolution-add-attribute.php extensions/ModifyStatusField
+
+COPY extensions/AddPortfolioField/datamodel.applicationsolution-add-portfolio-field.xml extensions/AddPortfolioField
+COPY extensions/AddPortfolioField/en.dict.applicationsolution-add-portfolio-field.php extensions/AddPortfolioField
+COPY extensions/AddPortfolioField/model.applicationsolution-add-portfolio-field.php extensions/AddPortfolioField
+COPY extensions/AddPortfolioField/module.applicationsolution-add-portfolio-field.php extensions/AddPortfolioField
 
 #end of ISED customizations
 
