@@ -3,7 +3,7 @@
   <classes>
     <class id="ApplicationSolution">
       <fields>
-        <field id="Jira_Dep_ID" xsi:type="AttributeText" _delta="define">
+        <field id="Jira_Dep_ID" xsi:type="AttributeString" _delta="define">
           <sql>Jira_Dep_ID</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
