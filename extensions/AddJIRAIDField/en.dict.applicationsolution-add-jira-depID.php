@@ -7,6 +7,6 @@
  */
 
 Dict::Add('EN US', 'English', 'English', array(
-        'Class:ApplicationSolution/Attribute:Jira_Dep_ID' => 'JIRA Departmental Application ID',
+        'Class:ApplicationSolution/Attribute:Jira_Dep_ID' => 'JIRA Dept. App ID',
 ));
 ?>
