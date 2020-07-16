@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
-	<classes>
-		<class id="ApplicationSolution">
-			<fields>
-				<field id="APM_Portfolio_Assessment" xsi:type="AttributeEnum" _delta="define">
-					<values _delta="define">
-						<value id="Included" _delta="define">Included</value>
-						<value id="Not Included - Out of Scope" _delta="define">Not Included - Out of Scope</value>
-						<value id="Not Included - Only Departmental Usage" _delta="define">Not Included - Only Departmental Usage</value>
-						<value id="Not Included - Incomplete Record" _delta="define">Not Included - Incomplete Record</value>
-					</values>
-					<sql>APM_Portfolio_Assessment</sql>
-					<default_value>Included</default_value>
-					<is_null_allowed>true</is_null_allowed>
-					<display_style>list</display_style>
-				</field>
-			</fields>
-		</class>
-	</classes>
-	<dictionaries>
+  <classes>
+    <class id="ApplicationSolution">
+      <fields>
+        <field id="APM_Portfolio_Assessment" xsi:type="AttributeEnum" _delta="define">
+		<values _delta="define">
+			<value id="Included" _delta="define">Included in TBS Assessment</value>
+			<value id="Not Included - Out of Scope" _delta="define">Not Included in TBS Assessment - Out of Scope</value>
+			<value id="Not Included - Only Departmental Usage" _delta="define">Not Included in TBS Assessment - Only Departmental Usage</value>
+			<value id="Not Included - Incomplete Record" _delta="define">Not Included in TBS Assessment - Incomplete Record</value>
+		</values>
+		<sql>APM_Portfolio_Assessment</sql>
+		<default_value>Included in TBS Assessment</default_value>
+		<is_null_allowed>true</is_null_allowed>
+		<display_style>list</display_style>
+        </field>
+      </fields>
+     </class>
+  </classes>
+  <dictionaries>
 		<dictionary id="EN US">
 			<entries>
-				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Included" _delta="define"><![CDATA[Included]]></entry>
-				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Out of Scope" _delta="define"><![CDATA[Not Included - Out of Scope]]></entry>
-				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Only Departmental Usage" _delta="define"><![CDATA[Not Included - Only Departmental Usage]]></entry>
-				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Incomplete Record" _delta="define"><![CDATA[Not Included - Incomplete Record]]></entry>
+                		<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Included" _delta="define"><![CDATA[Included in TBS Assessment]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Out of Scope" _delta="define"><![CDATA[Not Included in TBS Assessment - Out of Scope]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Only Departmental Usage" _delta="define"><![CDATA[Not Included in TBS Assessment - Only Departmental Usage]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_Portfolio_Assessment/Value:Not Included - Incomplete Record" _delta="define"><![CDATA[Not Included in TBS Assessment - Incomplete Record]]></entry>
 			</entries>
 		</dictionary>
-	</dictionaries>
+  </dictionaries>
 </itop_design>
