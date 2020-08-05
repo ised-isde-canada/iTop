@@ -56,9 +56,9 @@ COPY extensions/AddJIRAIDField/en.dict.applicationsolution-add-jira-depID.php ex
 COPY extensions/AddJIRAIDField/model.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 
-COPY extensions/iTopGraphviz/dot /usr/bin
-
 #end of ISED customizations
+
+RUN yum install -y graphviz; yum clean all
 
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
