@@ -58,8 +58,7 @@ COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php ext
 
 #end of ISED customizations
 
-#RUN yum install -y graphviz; yum clean all
-RUN yum install graphviz
+RUN yum install -y graphviz; yum clean all
 
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
