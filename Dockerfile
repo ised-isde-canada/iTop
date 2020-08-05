@@ -58,6 +58,8 @@ COPY extensions/AddJIRAIDField/en.dict.applicationsolution-add-jira-depID.php ex
 COPY extensions/AddJIRAIDField/model.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 
+COPY extensions/iTopGraphviz/dot /usr/bin/dot
+
 #end of ISED customizations
 
 RUN chgrp -R 0 /opt/app-root/src && \
