@@ -13,6 +13,8 @@ RUN yum update -y && \
         php-mysqli \
         php-gd && \
     yum clean all
+    
+RUN yum install -y graphviz; yum clean all
 
 COPY / /opt/app-root/src
 
@@ -57,8 +59,6 @@ COPY extensions/AddJIRAIDField/model.applicationsolution-add-jira-depID.php exte
 COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 
 #end of ISED customizations
-
-RUN yum install -y graphviz; yum clean all
 
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
