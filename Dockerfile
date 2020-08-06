@@ -14,8 +14,7 @@ RUN yum update -y && \
         php-gd && \
     yum clean all
 
-#RUN yum install -y graphviz && \ yum clean all
-RUN apt-get install graphviz
+RUN yum install -y graphviz && \ yum clean all
 
 COPY / /opt/app-root/src
 
