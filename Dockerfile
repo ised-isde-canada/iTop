@@ -7,15 +7,18 @@ ENV COMPOSER_FILE=composer-installer
 RUN curl -s -o $COMPOSER_FILE https://getcomposer.org/installer && \
     php <$COMPOSER_FILE
 
-RUN subscription-manager repos --list
-
 RUN yum update -y && \
     yum install -y \
         php-soap \
         php-mysqli \
         php-gd && \
     yum clean all
-    
+
+#Download yum-config-manager
+RUN yum search yum-config-manager
+#Adding repo file for Graphviz
+RUN yum-config-manager --add-repo http://www.graphviz.org/graphviz-rhel.repo
+#Installing Graphviz
 RUN yum install -y graphviz && \ yum clean all
 
 COPY / /opt/app-root/src
