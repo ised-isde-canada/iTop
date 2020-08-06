@@ -7,7 +7,7 @@ ENV COMPOSER_FILE=composer-installer
 RUN curl -s -o $COMPOSER_FILE https://getcomposer.org/installer && \
     php <$COMPOSER_FILE
 
-RUN subscription-manager register
+RUN subscription-manager repos --list
 
 RUN yum update -y && \
     yum install -y \
