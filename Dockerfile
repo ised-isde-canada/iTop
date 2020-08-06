@@ -15,7 +15,7 @@ RUN yum update -y && \
     yum clean all
 
 #Download yum-config-manager
-RUN yum search yum-config-manager
+RUN yum install yum-utils
 #Adding repo file for Graphviz
 RUN yum-config-manager --add-repo http://www.graphviz.org/graphviz-rhel.repo
 #Installing Graphviz
