@@ -14,11 +14,6 @@ RUN yum update -y && \
         php-gd && \
     yum clean all
 
-#Download yum-config-manager
-RUN yum install yum-utils
-#Adding repo file for Graphviz
-RUN yum-config-manager --add-repo http://www.graphviz.org/graphviz-rhel.repo
-#Installing Graphviz
 RUN yum install -y graphviz && \ yum clean all
 
 COPY / /opt/app-root/src
