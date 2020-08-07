@@ -1,4 +1,4 @@
-FROM registry.apps.dev.openshift.ised-isde.canada.ca/ised-ci/sclorg-s2i-php:7.3
+FROM registry.access.redhat.com/ubi8/php-73
 
 USER root
 
