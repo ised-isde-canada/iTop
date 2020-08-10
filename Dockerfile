@@ -60,7 +60,7 @@ COPY extensions/AddJIRAIDField/model.applicationsolution-add-jira-depID.php exte
 COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 
 #end of ISED customizations
-
+#29 dependency
 RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/lasi-1.1.3-4.fc33.i686.rpm \
 	&& yum install -y lasi-1.1.3-4.fc33.i686.rpm \
@@ -72,11 +72,6 @@ RUN yum update -y \
 	&& yum clean all
 	
 RUN yum update -y \
-	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32-1.fc33.i686.rpm \
-	&& yum install -y glibc-2.32-1.fc33.i686.rpm \
-	&& yum clean all
-	
-RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-common-2.32-1.fc33.x86_64.rpm \
 	&& yum install -y glibc-common-2.32-1.fc33.x86_64.rpm \
 	&& yum clean all
@@ -84,6 +79,11 @@ RUN yum update -y \
 RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-all-langpacks-2.32-1.fc33.x86_64.rpm \
 	&& yum install -y glibc-all-langpacks-2.32-1.fc33.x86_64.rpm \
+	&& yum clean all
+
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32-1.fc33.i686.rpm \
+	&& yum install -y glibc-2.32-1.fc33.i686.rpm \
 	&& yum clean all
 
 RUN yum update -y \
