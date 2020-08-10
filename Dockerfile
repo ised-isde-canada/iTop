@@ -70,7 +70,8 @@ RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x8
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/gts-0.7.6-38.20121130.fc33.i686.rpm \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm
 
-	
+RUN yum localinstall *.rpm	
+
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
 
