@@ -61,8 +61,8 @@ COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php ext
 
 #end of ISED customizations
 
-RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm \
-	&& rpm –i graphviz-2.44.0-12.fc33.i686.rpm
+RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm
+RUN yum install graphviz-2.44.0-12.fc33.i686.rpm
 	
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
