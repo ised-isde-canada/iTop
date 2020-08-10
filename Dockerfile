@@ -61,22 +61,28 @@ COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php ext
 
 #end of ISED customizations
 
-RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/lasi-1.1.3-4.fc33.i686.rpm \
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/lasi-1.1.3-4.fc33.i686.rpm \
 	&& yum install lasi-1.1.3-4.fc33.i686.rpm
 	
-RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libXaw-1.0.13-15.fc33.i686.rpm \
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libXaw-1.0.13-15.fc33.i686.rpm \
 	&& yum install libXaw-1.0.13-15.fc33.i686.rpm
 
-RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/gts-0.7.6-38.20121130.fc33.i686.rpm \
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/gts-0.7.6-38.20121130.fc33.i686.rpm \
 	&& yum install gts-0.7.6-38.20121130.fc33.i686.rpm
 
-RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32-1.fc33.i686.rpm \
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32-1.fc33.i686.rpm \
 	&& yum install glibc-2.32-1.fc33.i686.rpm
 
-RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/x/xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/x/xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
 	&& yum install 	xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm
 
-RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm \
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm \
 	&& yum install graphviz-2.44.0-12.fc33.i686.rpm
 	
 RUN chgrp -R 0 /opt/app-root/src && \
