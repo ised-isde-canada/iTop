@@ -68,6 +68,14 @@ RUN yum update -y \
 RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libXaw-1.0.13-15.fc33.i686.rpm \
 	&& yum install -y libXaw-1.0.13-15.fc33.i686.rpm
+	
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-common-2.32-1.fc33.x86_64.rpm \
+	&& yum install -y glibc-common-2.32-1.fc33.x86_64.rpm
+	
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-all-langpacks-2.32-1.fc33.x86_64.rpm \
+	&& yum install -y glibc-all-langpacks-2.32-1.fc33.x86_64.rpm
 
 RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32-1.fc33.i686.rpm \
