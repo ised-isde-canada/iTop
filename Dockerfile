@@ -73,7 +73,8 @@ RUN yum update -y \
 	
 RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-common-2.32-1.fc33.x86_64.rpm \
-	&& yum --nodeps --force install -y glibc-common-2.32-1.fc33.x86_64.rpm \
+	#&& yum install -y glibc-common-2.32-1.fc33.x86_64.rpm \
+	&& rpm -i --nodeps glibc-common-2.32-1.fc33.x86_64.rpm \
 	&& yum clean all
 	
 RUN yum update -y \
