@@ -11,7 +11,8 @@ RUN yum update -y && \
     yum install -y \
         php-soap \
         php-mysqli \
-        php-gd && \
+        php-gd \
+	php-pecl-zip && \
     yum clean all
 
 #RUN yum repolist
