@@ -70,10 +70,6 @@ RUN yum update -y \
 	&& yum install -y libXaw-1.0.13-15.fc33.i686.rpm
 
 RUN yum update -y \
-	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/gts-0.7.6-38.20121130.fc33.i686.rpm \
-	&& yum install -y gts-0.7.6-38.20121130.fc33.i686.rpm
-
-RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32-1.fc33.i686.rpm \
 	&& yum install -y glibc-2.32-1.fc33.i686.rpm
 
@@ -81,6 +77,11 @@ RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/x/xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
 	&& yum install -y xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm
 
+RUN yum update -y \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/gts-0.7.6-38.20121130.fc33.i686.rpm \
+	&& yum install -y gts-0.7.6-38.20121130.fc33.i686.rpm
+
+#Graphviz Installation
 RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm \
 	&& yum install -y graphviz-2.44.0-12.fc33.i686.rpm
