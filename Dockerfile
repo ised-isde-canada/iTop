@@ -70,8 +70,31 @@ RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x8
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/gts-0.7.6-38.20121130.fc33.i686.rpm \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm
 
-RUN yum localinstall *.rpm	
+RUN yum update -y \
+	&& yum install -y lasi-1.1.3-4.fc33.i686.rpm \
+	&& yum clean all
+	
+RUN yum update -y \
+	&& yum install -y libXaw-1.0.13-15.fc33.i686.rpm \
+	&& yum clean all
 
+RUN yum update -y \
+	&& yum localinstall glibc-common-2.32-1.fc33.x86_64.rpm glibc-all-langpacks-2.32-1.fc33.x86_64.rpm glibc-2.32-1.fc33.i686.rpm \
+	&& yum clean all
+	
+RUN yum update -y \
+	&& yum install -y xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
+	&& yum clean all
+	
+RUN yum update -y \
+	&& yum install -y gts-0.7.6-38.20121130.fc33.i686.rpm \
+	&& yum clean all
+	
+#Graphviz Installation
+RUN yum update -y \
+	&& yum install -y graphviz-2.44.0-12.fc33.i686.rpm \
+	&& yum clean all
+	
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
 
