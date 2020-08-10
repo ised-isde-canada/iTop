@@ -99,7 +99,7 @@ RUN yum update -y \
 #Graphviz Installation
 RUN yum update -y \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/graphviz-2.44.0-12.fc33.i686.rpm \
-	&& yum --skip-broken install -y graphviz-2.44.0-12.fc33.i686.rpm \
+	&& yum install -y graphviz-2.44.0-12.fc33.i686.rpm \
 	&& yum clean all
 	
 RUN chgrp -R 0 /opt/app-root/src && \
