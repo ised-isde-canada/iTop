@@ -103,9 +103,9 @@ RUN yum update -y \
 	&& yum clean all
 	
 #Graphviz Installation
-#RUN yum update -y \
-#	&& yum install -y graphviz-2.44.0-12.fc33.i686.rpm \
-#	&& yum clean all
+RUN yum update -y \
+	&& yum install -y graphviz-2.44.0-12.fc33.i686.rpm \
+	&& yum clean all
 	
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
