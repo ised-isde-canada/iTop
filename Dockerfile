@@ -79,10 +79,6 @@ RUN yum update -y \
 	&& yum install -y libXaw-1.0.13-15.fc33.i686.rpm \
 	&& yum clean all
 
-#RUN yum update -y \
-#	&& yum localinstall glibc-common-2.32-1.fc33.x86_64.rpm glibc-all-langpacks-2.32-1.fc33.x86_64.rpm glibc-2.32-1.fc33.i686.rpm \
-#	&& yum clean all
-
 RUN rpm -i glibc-2.32-1.fc33.i686.rpm --nodeps --force
 
 RUN rpm -i glibc-common-2.32-1.fc33.x86_64.rpm --nodeps --force
@@ -93,7 +89,6 @@ RUN yum update -y \
 	&& yum install -y xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
 	&& yum clean all
 
-# libnetpbm.so.11 Installation
 RUN yum update -y \
 	&& yum install -y netpbm-10.90.00-2.fc33.i686.rpm \
 	&& yum clean all
@@ -106,6 +101,8 @@ RUN yum update -y \
 RUN yum update -y \
 	&& yum install -y graphviz-2.44.0-12.fc33.i686.rpm \
 	&& yum clean all
+
+RUN rm *.rpm
 	
 RUN chgrp -R 0 /opt/app-root/src && \
     chmod -R g=u+wx /opt/app-root/src
