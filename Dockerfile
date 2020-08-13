@@ -59,6 +59,16 @@ COPY extensions/AddJIRAIDField/en.dict.applicationsolution-add-jira-depID.php ex
 COPY extensions/AddJIRAIDField/model.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 COPY extensions/AddJIRAIDField/module.applicationsolution-add-jira-depID.php extensions/AddJIRAIDField
 
+COPY extensions/AddEmailEnabledField/datamodel.applicationsolution-add-email-enabled-field.xml extensions/AddEmailEnabledField
+COPY extensions/AddEmailEnabledField/en.dict.applicationsolution-add-email-enabled-field.php extensions/AddEmailEnabledField
+COPY extensions/AddEmailEnabledField/model.applicationsolution-add-email-enabled-field.php extensions/AddEmailEnabledField
+COPY extensions/AddEmailEnabledField/module.applicationsolution-add-email-enabled-field.php extensions/AddEmailEnabledField
+
+COPY extensions/AddEmailProtocolField/datamodel.applicationsolution-add-email-protocol-field.xml extensions/AddEmailProtocolField
+COPY extensions/AddEmailProtocolField/en.dict.applicationsolution-add-email-protocol-field.php extensions/AddEmailProtocolField
+COPY extensions/AddEmailProtocolField/model.applicationsolution-add-email-protocol-field.php extensions/AddEmailProtocolField
+COPY extensions/AddEmailProtocolField/module.applicationsolution-add-email-protocol-field.php extensions/AddEmailProtocolField
+
 #end of ISED customizations
 #29 dependency
 RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/lasi-1.1.3-4.fc33.i686.rpm \
