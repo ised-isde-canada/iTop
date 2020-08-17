@@ -4,14 +4,14 @@
     <class id="ApplicationSolution">
       <fields>
         <field id="Email_Enabled" xsi:type="AttributeEnum" _delta="define">
-			<values _delta="define">
-				<value id="Yes_Email" _delta="define">Yes</value>
-				<value id="No_Email" _delta="define">No</value>
-			</values>
-			<sql>Email_Enabled</sql>
-			<default_value>Yes</default_value>
-			<is_null_allowed>true</is_null_allowed>
-			<display_style>list</display_style>
+		<values _delta="define">
+			<value id="Yes_Email" _delta="define">Yes</value>
+			<value id="No_Email" _delta="define">No</value>
+		</values>
+		<sql>Email_Enabled</sql>
+		<default_value>Yes</default_value>
+		<is_null_allowed>true</is_null_allowed>
+		<display_style>list</display_style>
         </field>
       </fields>
      </class>
@@ -19,7 +19,7 @@
   <dictionaries>
 		<dictionary id="EN US">
 			<entries>
-        <entry id="Class:ApplicationSolution/Attribute:Email_Enabled/Value:Yes_Email" _delta="define"><![CDATA[Yes]]></entry>
+        			<entry id="Class:ApplicationSolution/Attribute:Email_Enabled/Value:Yes_Email" _delta="define"><![CDATA[Yes]]></entry>
 				<entry id="Class:ApplicationSolution/Attribute:Email_Enabled/Value:No_Email" _delta="define"><![CDATA[No]]></entry>
 			</entries>
 		</dictionary>
