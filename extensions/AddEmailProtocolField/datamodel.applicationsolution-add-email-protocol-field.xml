@@ -6,7 +6,9 @@
 				<field id="Email_Protocol" xsi:type="AttributeEnum" _delta="define">
 					<values _delta="define">
 						<value id="SMTP" _delta="define">SMTP</value>
-						<value id="Outlook" _delta="define">Directly Invoked Outlook</value>
+						<value id="Exchange" _delta="define">Exchange Mailbox</value>
+						<value id="Client_Side" _delta="define">Client-Side Controls/Outlook</value>
+						<value id="Multiple_Options" _delta="define">Multiple Options</value>
 					</values>
 					<sql>Email_Protocol</sql>
 					<default_value></default_value>
@@ -19,8 +21,10 @@
 	<dictionaries>
 		<dictionary id="EN US">
 			<entries>
-                                <entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:SMTP" _delta="define"><![CDATA[SMTP]]></entry>
-				<entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:Outlook" _delta="define"><![CDATA[Directly Invoked Outlook]]></entry>
+                <entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:SMTP" _delta="define"><![CDATA[SMTP]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:Exchange" _delta="define"><![CDATA[Exchange Mailbox]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:Client_Side" _delta="define"><![CDATA[Client-Side Controls/Outlook]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:Multiple_Options" _delta="define"><![CDATA[Multiple]]></entry>
 			</entries>
 		</dictionary>
 	</dictionaries>
