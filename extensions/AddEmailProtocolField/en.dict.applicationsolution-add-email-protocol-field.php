@@ -7,6 +7,6 @@
  */
 
 Dict::Add('EN US', 'English', 'English', array(
-        'Class:ApplicationSolution/Attribute:Email_Protocol' => 'Email Protocol',
+        'Class:ApplicationSolution/Attribute:Email_Protocol' => 'Email Connection Type',
 ));
 ?>
