@@ -101,11 +101,11 @@ RUN yum update -y \
 	&& yum clean all
 
 RUN yum update -y \
-	&& yum install -y netpbm-10.90.00-2.fc33.i686.rpm \
-	&& yum clean all
-
-RUN yum update -y \
 	&& yum install -y gts-0.7.6-38.20121130.fc33.i686.rpm \
+	&& yum clean all
+	
+RUN yum update -y \
+	&& yum install -y netpbm-10.90.00-2.fc33.i686.rpm \
 	&& yum clean all
 	
 #Graphviz Installation
