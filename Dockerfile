@@ -100,10 +100,6 @@ RUN yum update -y \
 	&& yum install -y xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
 	&& yum clean all
 	
-RUN yum update -y \
-	&& yum install -y cross-armv7hnl-openmandriva-linux-gnueabihf-libc-2.32-1.x86_64.rpm \
-	&& yum clean all
-	
 #RUN yum update -y \
 #	&& yum install -y netpbm-10.90.00-2.fc33.i686.rpm \
 #	&& yum clean all
