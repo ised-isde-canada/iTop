@@ -73,9 +73,9 @@ COPY extensions/AddEmailProtocolField/module.applicationsolution-add-email-proto
 #29 dependency
 RUN wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/lasi-1.1.3-4.fc33.i686.rpm \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libXaw-1.0.13-15.fc33.i686.rpm \
-	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-common-2.32-1.fc33.x86_64.rpm \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-common-2.32.9000-1.fc34.x86_64.rpm \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-all-langpacks-2.32-1.fc33.x86_64.rpm \
-	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32-1.fc33.i686.rpm \
+	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/glibc-2.32.9000-1.fc34.x86_64.rpm \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/x/xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/g/gts-0.7.6-38.20121130.fc33.i686.rpm \
 	&& wget http://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/n/netpbm-10.90.00-2.fc33.i686.rpm \
@@ -89,11 +89,11 @@ RUN yum update -y \
 	&& yum install -y libXaw-1.0.13-15.fc33.i686.rpm \
 	&& yum clean all
 
-RUN rpm -i glibc-2.32-1.fc33.i686.rpm --nodeps --force
+RUN rpm -i glibc-2.32.9000-1.fc34.x86_64.rpm --nodeps --force
 
-RUN rpm -i glibc-common-2.32-1.fc33.x86_64.rpm --nodeps --force
+RUN rpm -i glibc-common-2.32.9000-1.fc34.x86_64.rpm --nodeps --force
 
-RUN rpm -i glibc-all-langpacks-2.32-1.fc33.x86_64.rpm --nodeps --force
+RUN rpm -i glibc-all-langpacks-2.32.9000-1.fc34.x86_64.rpm --nodeps --force
 	
 RUN yum update -y \
 	&& yum install -y xorg-x11-fonts-ISO8859-1-100dpi-7.5-25.fc33.noarch.rpm \
