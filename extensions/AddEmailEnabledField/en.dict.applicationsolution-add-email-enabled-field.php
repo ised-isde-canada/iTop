@@ -7,6 +7,6 @@
  */
 
 Dict::Add('EN US', 'English', 'English', array(
-        'Class:ApplicationSolution/Attribute:APM_List_Present' => 'Present in APM List',
+        'Class:ApplicationSolution/Attribute:APM_List_Present' => 'Email Enabled',
 ));
 ?>
