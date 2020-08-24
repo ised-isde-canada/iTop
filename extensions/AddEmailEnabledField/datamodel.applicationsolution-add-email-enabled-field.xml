@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+  <classes>
+    <class id="ApplicationSolution">
+      <fields>
+        <field id="Email_Enabled" xsi:type="AttributeEnum" _delta="define">
+		<values _delta="define">
+			<value id="No_Email" _delta="define">Not Enabled</value>
+			<value id="Yes_Email" _delta="define">Enabled</value>
+		</values>
+		<sql>Email_Enabled</sql>
+		<default_value>Enabled</default_value>
+		<is_null_allowed></is_null_allowed>
+		<display_style>radio_horizontal</display_style>
+        </field>
+      </fields>
+     </class>
+  </classes>
+  <dictionaries>
+		<dictionary id="EN US">
+			<entries>
+        			<entry id="Class:ApplicationSolution/Attribute:Email_Enabled/Value:Yes_Email" _delta="define"><![CDATA[Enabled]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:Email_Enabled/Value:No_Email" _delta="define"><![CDATA[Not Enabled]]></entry>
+			</entries>
+		</dictionary>
+  </dictionaries>
+</itop_design>

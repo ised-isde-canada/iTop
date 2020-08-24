@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
-  <classes>
-    <class id="ApplicationSolution">
-      <fields>
-        <field id="APM_List_Present" xsi:type="AttributeEnum" _delta="define">
-			<values _delta="define">
-				<value id="Yes" _delta="define">Yes</value>
-				<value id="No" _delta="define">No</value>
-			</values>
-			<sql>APM_List_Present</sql>
-			<default_value>Yes</default_value>
-			<is_null_allowed></is_null_allowed>
-			<display_style>list</display_style>
-        </field>
-      </fields>
-     </class>
-  </classes>
-  <dictionaries>
+	<classes>
+		<class id="ApplicationSolution">
+			<fields>
+				<field id="APM_List_Present" xsi:type="AttributeEnum" _delta="define">
+					<values _delta="define">
+						<value id="No" _delta="define">False</value>
+						<value id="Yes" _delta="define">Correct</value>
+					</values>
+					<sql>APM_List_Present</sql>
+					<default_value>Correct</default_value>
+					<is_null_allowed></is_null_allowed>
+					<display_style>radio_horizontal</display_style>
+				</field>
+			</fields>
+		</class>
+	</classes>
+	<dictionaries>
 		<dictionary id="EN US">
 			<entries>
-          <entry id="Class:ApplicationSolution/Attribute:APM_List_Present/Value:Yes" _delta="define"><![CDATA[Yes]]></entry>
-				  <entry id="Class:ApplicationSolution/Attribute:APM_List_Present/Value:No" _delta="define"><![CDATA[No]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_List_Present/Value:Yes" _delta="define"><![CDATA[Correct]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:APM_List_Present/Value:No" _delta="define"><![CDATA[False]]></entry>
 			</entries>
 		</dictionary>
-  </dictionaries>
+	</dictionaries>
 </itop_design>

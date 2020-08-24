@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+	<classes>
+		<class id="ApplicationSolution">
+			<fields>
+				<field id="Email_Protocol" xsi:type="AttributeEnum" _delta="define">
+					<values _delta="define">
+						<value id="SMTP" _delta="define">SMTP</value>
+						<value id="Exchange" _delta="define">Exchange Mailbox</value>
+						<value id="Client_Side" _delta="define">Client-Side Controls/Outlook</value>
+						<value id="Multiple_Options" _delta="define">Multiple Options</value>
+					</values>
+					<sql>Email_Protocol</sql>
+					<default_value></default_value>
+					<is_null_allowed>true</is_null_allowed>
+					<display_style>list</display_style>
+				</field>
+			</fields>
+		</class>
+	</classes>
+	<dictionaries>
+		<dictionary id="EN US">
+			<entries>
+                <entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:SMTP" _delta="define"><![CDATA[SMTP]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:Exchange" _delta="define"><![CDATA[Exchange Mailbox]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:Client_Side" _delta="define"><![CDATA[Client-Side Controls/Outlook]]></entry>
+				<entry id="Class:ApplicationSolution/Attribute:Email_Protocol/Value:Multiple_Options" _delta="define"><![CDATA[Multiple]]></entry>
+			</entries>
+		</dictionary>
+	</dictionaries>
+</itop_design>
