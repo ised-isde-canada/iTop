@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+	<constants>
+	</constants>
+	<classes>
+	</classes>
+	<menus>
+	</menus>
+	<user_rights>
+		<profiles>
+			<profile id="51" _delta="define">
+			<name>Readonly Access</name>
+			<description>Users with this profile are allowed to browse through all objects in the application, but are not able to modify anything.</description>
+			<groups>
+				<group id="*">
+					<actions>
+						<action xsi:type="read">allow</action>
+						<action xsi:type="bulk read">allow</action>
+					</actions>
+				</group>
+			</groups>
+			</profile>
+		</profiles>
+	</user_rights>
+</itop_design>
