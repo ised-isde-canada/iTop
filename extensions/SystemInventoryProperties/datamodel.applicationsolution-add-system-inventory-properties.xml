@@ -8,32 +8,32 @@
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
 				</field>
-				<field id="Client Groups" xsi:type="AttributeString" _delta="define">
+				<field id="Client_Groups" xsi:type="AttributeString" _delta="define">
 					<sql>Client_Groups</sql>
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
 				</field>
-				<field id="ASMD Contact" xsi:type="AttributeString" _delta="define">
+				<field id="ASMD_Contact" xsi:type="AttributeString" _delta="define">
 					<sql>ASMD_Contact</sql>
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
 				</field>
-				<field id="Client Contact" xsi:type="AttributeString" _delta="define">
+				<field id="Client_Contact" xsi:type="AttributeString" _delta="define">
 					<sql>Client_Contact</sql>
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
 				</field>
-				<field id="Technology Infrastructure" xsi:type="AttributeString" _delta="define">
+				<field id="Technology_Infrastructure" xsi:type="AttributeString" _delta="define">
 					<sql>Technology_Infrastructure</sql>
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
 				</field>
-				<field id="Risks and Issues" xsi:type="AttributeString" _delta="define">
+				<field id="Risks_and_Issues" xsi:type="AttributeString" _delta="define">
 					<sql>Risks_Issues</sql>
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
 				</field>
-				<field id="Current Status" xsi:type="AttributeString" _delta="define">
+				<field id="Current_Status" xsi:type="AttributeString" _delta="define">
 					<sql>Current_Status</sql>
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
@@ -43,7 +43,7 @@
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
 				</field>
-				<field id="Next Steps and Upcoming Plans" xsi:type="AttributeString" _delta="define">
+				<field id="Next_Step_Upcoming_Plans" xsi:type="AttributeString" _delta="define">
 					<sql>Next_Step_Upcoming_Plans</sql>
 					<default_value/>
 					<is_null_allowed>true</is_null_allowed>
