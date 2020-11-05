@@ -20,7 +20,7 @@
 				<details _delta="redefine">
 					<items>
 						<item id="col:col1">
-						<rank>10</rank>
+							<rank>10</rank>
 							<items>
 								<item id="fieldset:General Information">
 									<rank>10</rank>
@@ -67,6 +67,41 @@
 										</item>
 										<item id="Email_Protocol">
 										  <rank>40</rank>
+										</item>
+									</items>
+								</item>
+								<item id="fieldset:System Inventory Properties">
+									<rank>20</rank>
+									<items>			
+										<item id="Section">
+										  <rank>10</rank>
+										</item>
+										<item id="Client_Groups">
+										  <rank>20</rank>
+										</item>
+										<item id="ASMD_Contact">
+										  <rank>30</rank>
+										</item>
+										<item id="Client_Contact">
+										  <rank>40</rank>
+										</item>
+										<item id="Technology_Infrastructure">
+										  <rank>50</rank>
+										</item>
+										<item id="Risks_and_Issues">
+										  <rank>60</rank>
+										</item>
+										<item id="Current_Status">
+										  <rank>70</rank>
+										</item>
+										<item id="Documentation">
+										  <rank>80</rank>
+										</item>
+										<item id="Next_Step_Upcoming_Plans">
+										  <rank>90</rank>
+										</item>
+										<item id="Comments">
+										  <rank>100</rank>
 										</item>
 									</items>
 								</item>
