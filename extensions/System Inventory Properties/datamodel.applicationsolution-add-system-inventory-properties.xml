@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+	<classes>
+		<class id="ApplicationSolution">
+			<fields>
+				<field id="Section" xsi:type="AttributeString" _delta="define">
+					<sql>Section</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Client Groups" xsi:type="AttributeString" _delta="define">
+					<sql>Client_Groups</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="ASMD Contact" xsi:type="AttributeString" _delta="define">
+					<sql>ASMD_Contact</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Client Contact" xsi:type="AttributeString" _delta="define">
+					<sql>Client_Contact</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Technology Infrastructure" xsi:type="AttributeString" _delta="define">
+					<sql>Technology_Infrastructure</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Risks and Issues" xsi:type="AttributeString" _delta="define">
+					<sql>Risks_Issues</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Current Status" xsi:type="AttributeString" _delta="define">
+					<sql>Current_Status</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Documentation" xsi:type="AttributeString" _delta="define">
+					<sql>Documentation</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Next Steps and Upcoming Plans" xsi:type="AttributeString" _delta="define">
+					<sql>Next_Step_Upcoming_Plans</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+				<field id="Comments" xsi:type="AttributeString" _delta="define">
+					<sql>Comments</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+				</field>
+			</fields>
+		</class>
+	</classes>
+</itop_design>
