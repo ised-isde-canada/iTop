@@ -7,10 +7,10 @@
  */
 
 Dict::Add('EN US', 'English', 'English', array(
-        'Class:ApplicationSolution/Attribute:Section' => 'Section',
+        'Class:ApplicationSolution/Attribute:Section' => 'Technical Lead Organization',
 		'Class:ApplicationSolution/Attribute:Client_Groups' => 'Client Groups',
-		'Class:ApplicationSolution/Attribute:ASMD_Contact' => 'ASMD Contact',
-		'Class:ApplicationSolution/Attribute:Client_Contact' => 'Client Contact',
+		'Class:ApplicationSolution/Attribute:ASMD_Contact' => 'Technical Lead',
+		'Class:ApplicationSolution/Attribute:Client_Contact' => 'Business Lead',
 		'Class:ApplicationSolution/Attribute:Technology_Infrastructure' => 'Technology Infrastructure',
 		'Class:ApplicationSolution/Attribute:Risks_Issues' => 'Risks/Issues',
 		'Class:ApplicationSolution/Attribute:Current_Status' => 'Current Status',
